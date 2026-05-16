@@ -23,7 +23,7 @@ const LinkedInCallback = () => {
       // Send code to backend
 
       const response = await axios.post(
-        "http://localhost:5000/api/auth/linkedin",
+        `${import.meta.env.VITE_API_URL}/api/auth/linkedin`,
         {
           code,
         }
@@ -36,7 +36,7 @@ const LinkedInCallback = () => {
       // Save user in database
 
       await axios.post(
-        "http://localhost:5000/api/users/save-user",
+        `${import.meta.env.VITE_API_URL}/api/users/save-user`,
         userData
       );
     } catch (error) {
